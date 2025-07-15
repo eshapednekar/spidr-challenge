@@ -1,0 +1,183 @@
+:root {
+  --accent-blue: #479daf;
+  --background-dark: #262728;
+  --text-light: #F3F3F3;
+  --text-muted: #CCCCCC;
+  --button-hover-bg: #FFFFFF;
+  --button-hover-text: #479daf;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: var(--background-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.spidr-layout {
+  display: flex;
+  height: 100vh; 
+  width: 100vw; 
+  position: relative;
+  overflow: hidden;
+}
+
+
+.image-column {
+  flex: 0.97;
+  min-width: 0;
+  background-image: url("https://ipfs.io/ipfs/bafybeiac6tpyfgdllwmpme5ir3hkmhu7vnlqsze6o7sqyogxfdj2rtd5le/");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  position: relative;
+  z-index: 1;
+}
+
+.form-column {
+  flex: 0 0 540px; /* Fixed width for the form area */
+  width: 600px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
+  background: none;
+}
+
+.form-wrapper {
+  background: rgba(71, 157, 175, 0.88);
+  padding: 20px 40px 30px 40px;
+  max-width: 900px;   /* Make the form itself wider */
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  position: absolute;
+  left: -100px;       /* More negative for more overlap */
+  /* right: 0; <-- REMOVE THIS LINE */
+  right: auto;        /* Add this line */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 16px;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: #ffffff;
+  margin: 15px auto 30px;
+  line-height: 1.1;
+}
+
+/* Form structure */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs styled like outlined buttons */
+input {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 0;
+  transition: border-color 0.2s, background 0.2s;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+input::placeholder {
+  color: #EEE;
+  font-weight: 300;
+}
+
+input:focus {
+  outline: none;
+  border-color: #FFF;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Button styled to differentiate from inputs */
+button {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFF;
+  background: transparent;
+  border: 1px solid #FFF;
+  padding: 14px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  margin-top: 10px;
+  display: block;
+  align-self: center;
+  width: 120px;
+}
+
+button:hover {
+  background: #1D3C42;
+  color: #4390A0;
+  border: 1px solid #1D3C42;
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .spidr-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-column {
+    height: 200px;
+  }
+
+  .form-column {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .form-wrapper {
+    left: 0;
+    box-shadow: none;
+    padding: 24px;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
